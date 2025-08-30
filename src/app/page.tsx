@@ -185,12 +185,6 @@ const SkillsCategory = ({ title, skills, icon, color, delay }: {
   color: string;
   delay: number;
 }) => {
-  // Create dynamic class names properly
-  const borderHoverClass = `hover:border-${color}-500/50`;
-  const shadowHoverClass = `hover:shadow-${color}-500/10`;
-  const bgGradientClass = `bg-gradient-to-r from-${color}-500 to-${color}-600`;
-  const textColorClass = `text-${color}-400`;
-
   return (
     <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/40 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:border-blue-500/50 hover:shadow-blue-500/10">
       <div className="flex items-center mb-6">
@@ -448,7 +442,7 @@ export default function Portfolio() {
             {/* Enhanced Content Section */}
             <div className="text-center lg:text-left">
               <div className="mb-6">
-                <div className="text-sm text-blue-400 font-medium mb-2 animate-pulse">👋 Hello, I'm</div>
+                <div className="text-sm text-blue-400 font-medium mb-2 animate-pulse">👋 Hello, I&apos;m</div>
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">
                   <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
                     {resume.name}
@@ -535,7 +529,7 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a passionate software engineering student with a strong foundation in computer science and hands-on experience building AI-powered web applications. Currently pursuing my B.E. in Computer Science at MCET with a CGPA of 8.67/10.
+                I&apos;m a passionate software engineering student with a strong foundation in computer science and hands-on experience building AI-powered web applications. Currently pursuing my B.E. in Computer Science at MCET with a CGPA of 8.67/10.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
                 My journey in tech has led me to explore various domains including web development, computer vision, and machine learning. I love creating solutions that combine cutting-edge technology with practical applications.
@@ -916,10 +910,10 @@ export default function Portfolio() {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Let's Build Something Amazing Together
+            Let&apos;s Build Something Amazing Together
           </h2>
           <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
-            Ready to discuss your next project? I'm always open to new opportunities and interesting conversations about technology.
+            Ready to discuss your next project? I&apos;m always open to new opportunities and interesting conversations about technology.
           </p>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -927,7 +921,7 @@ export default function Portfolio() {
               <div>
                 <h3 className="text-2xl font-semibold mb-6 text-gray-200">Get In Touch</h3>
                 <p className="text-lg text-gray-400 leading-relaxed">
-                  Whether you're looking to hire, collaborate, or just want to say hello, I'd love to hear from you. Let's create something extraordinary together!
+                  Whether you&apos;re looking to hire, collaborate, or just want to say hello, I&apos;d love to hear from you. Let&apos;s create something extraordinary together!
                 </p>
               </div>
               
@@ -998,7 +992,7 @@ export default function Portfolio() {
                     <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center mr-3">
                       <span className="text-white text-xs">✓</span>
                     </div>
-                    Thank you for your message! I'll get back to you soon.
+                    Thank you for your message! I&apos;ll get back to you soon.
                   </div>
                 </div>
               )}
@@ -1117,7 +1111,7 @@ export default function Portfolio() {
                 © 2025 {resume.name}. Crafted with React & Tailwind CSS.
               </p>
               <p className="text-gray-600 text-sm mt-2">
-                "Building the future, one line of code at a time."
+                &ldquo;Building the future, one line of code at a time.&rdquo;
               </p>
             </div>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, Phone, ChevronDown, Menu, X, ExternalLink, Calendar, Briefcase, GraduationCap, Code, Database, Cloud, Wrench, Trophy, Eye, Star, MapPin, Award, Monitor, Server, Layers, Globe, Palette, Cpu } from 'lucide-react';
 
 const resume = {
@@ -211,6 +211,7 @@ export default function Portfolio() {
     email: '',
     message: ''
   });
+  
   // Fix hydration error by using client-only state
   const [dots, setDots] = useState<Array<{
     left: string;
@@ -221,6 +222,12 @@ export default function Portfolio() {
     animationDuration: string;
     className: string;
   }>>([]);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
+
+  // Add form ref for better form handling
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -244,10 +251,7 @@ export default function Portfolio() {
     setDots(generatedDots);
   }, []);
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
-
-  // Fix email submission to use FormData instead of JSON
+  // Fixed email submission with better Formspree handling
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
@@ -260,24 +264,32 @@ export default function Portfolio() {
     setSubmitStatus('');
 
     try {
-      // Create FormData instead of JSON
-      const formDataToSend = new FormData();
-      formDataToSend.append('name', formData.name);
-      formDataToSend.append('email', formData.email);
-      formDataToSend.append('message', formData.message);
-
       const response = await fetch('https://formspree.io/f/xovnjgda', {
         method: 'POST',
-        body: formDataToSend, // Send FormData directly, no headers needed
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _replyto: formData.email,
+          _subject: `Portfolio Contact - Message from ${formData.name}`
+        })
       });
+
+      const data = await response.json();
 
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
+        console.error('Formspree error:', data);
         setSubmitStatus('error');
       }
     } catch (error) {
+      console.error('Network error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -1008,7 +1020,7 @@ export default function Portfolio() {
                 </div>
               )}
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
                   <input

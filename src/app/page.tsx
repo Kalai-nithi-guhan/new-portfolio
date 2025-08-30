@@ -88,7 +88,7 @@ const resume = {
       description: "Full-stack app that recommends fertilizers based on user input. AI logic lives in a custom /api/analyze route, images are stored in Firebase, and the UI is built with Next.js, React & Tailwind.",
       techStack: ["Next.js", "React", "Tailwind CSS", "Firebase", "Vercel"],
       liveLink: "https://fertilizer-recommendation.vercel.app/",
-      githubLink: "https://github.com/Kalai-nithi-guhan/fertilizer-recommendation",
+      githubLink: "https://github.com/Kalai-nithi-guhan",
       featured: true
     },
     {
@@ -96,7 +96,7 @@ const resume = {
       period: "2024",
       description: "Computer-vision solution that counts push-ups, squats & biceps curls via webcam using OpenCV + MediaPipe.",
       techStack: ["OpenCV", "MediaPipe", "JavaScript"],
-      githubLink: "https://github.com/Kalai-nithi-guhan/curl-counter",
+      githubLink: "https://github.com/Kalai-nithi-guhan",
       featured: true
     },
     {
@@ -104,7 +104,7 @@ const resume = {
       period: "2024",
       description: "Detects opposite-lane violations and mobile-phone-while-driving using CCTV footage and OpenCV.",
       techStack: ["OpenCV", "Python"],
-      githubLink: "https://github.com/Kalai-nithi-guhan/traffic-management",
+      githubLink: "https://github.com/Kalai-nithi-guhant",
       featured: false
     },
     {
@@ -112,7 +112,7 @@ const resume = {
       period: "2024 (ongoing)",
       description: "Predicts crime hot-spots using XGBoost, CatBoost & LightGBM classifiers; sends alerts to police department.",
       techStack: ["Python", "XGBoost", "CatBoost", "LightGBM"],
-      githubLink: "https://github.com/Kalai-nithi-guhan/crime-prediction",
+      githubLink: "https://github.com/Kalai-nithi-guhan",
       featured: true
     }
   ],
